@@ -22,7 +22,7 @@ class ProductType extends Resource
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'product_type';
 
     /**
      * The columns that should be searched.
@@ -30,7 +30,7 @@ class ProductType extends Resource
      * @var array
      */
     public static $search = [
-        'name',
+        'product_type',
     ];
 
     /**
@@ -42,8 +42,8 @@ class ProductType extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Name'),
+            ID::make(__('ID'), 'pc_product_type_id')->sortable(),
+            Text::make('Name','product_type'),
             HasMany::make('Asocs'),
         ];
     }

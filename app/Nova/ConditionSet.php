@@ -2,11 +2,12 @@
 
 namespace App\Nova;
 
+use Illuminate\Support\Str;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class ConditionSet extends Resource
@@ -47,6 +48,9 @@ class ConditionSet extends Resource
             Text::make('Type')->sortable(),
             Text::make('Description','desc')->sortable(),
             BelongsToMany::make('Conditions'),
+            Text::make('Created By')->fillUsing(function ($request, $model, $attribute, $requestAttribute) {
+                $model->{$attribute} = Str::title($request->user()->name);
+            }),
 
         ];
     }

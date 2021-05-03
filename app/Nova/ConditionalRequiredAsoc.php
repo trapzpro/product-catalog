@@ -24,7 +24,7 @@ class ConditionalRequiredAsoc extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'desc';
 
     /**
      * The columns that should be searched.
@@ -32,7 +32,7 @@ class ConditionalRequiredAsoc extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'desc',
     ];
 
     /**
@@ -45,7 +45,7 @@ class ConditionalRequiredAsoc extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Description'),
+            Text::make('Description','desc'),
             Select::make('Type')->options([
                 'MustMatch' => 'MustMatch',
                 'NotMatched' => 'NotMatched',

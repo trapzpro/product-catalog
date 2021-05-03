@@ -11,6 +11,7 @@ class Condition extends Model
 
     public function condition_sets()
     {
-        return $this->belongsToMany(ConditionSet::class);
+        if(config('app.use_new_fields')) return  $this->belongsToMany(ConditionSet::class);
+        else return  $this->belongsToMany(ConditionSet::class, 'condition_set_items');
     }
 }

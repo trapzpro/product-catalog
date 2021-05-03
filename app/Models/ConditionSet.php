@@ -10,7 +10,8 @@ class ConditionSet extends Model
     use HasFactory;
 
     public function conditions(){
-        //return $this->belongsToMany(Condition::class, 'condition_set_items');
-        return $this->belongsToMany(Condition::class);
+        if(config('app.use_new_fields')) return $this->belongsToMany(Condition::class);
+        else        return $this->belongsToMany(Condition::class, 'condition_set_items');
+        
     }
 }

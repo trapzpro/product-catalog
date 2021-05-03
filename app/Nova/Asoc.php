@@ -43,7 +43,7 @@ class Asoc extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make(__('ID'), 'id')->sortable(),
+            ID::make(__('ID'), 'pc_asoc_id')->sortable(),
             Text::make('Asoc')->sortable(),
             Text::make('Description')->sortable(),
             BelongsTo::make('Product Type'),
