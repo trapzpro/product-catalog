@@ -14,6 +14,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'use_new_fields' => env('USE_NEW_FIELDS', false),
 
     /*
     |--------------------------------------------------------------------------
