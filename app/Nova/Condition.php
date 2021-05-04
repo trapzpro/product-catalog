@@ -24,7 +24,9 @@ class Condition extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public function title(){
+        return $this->type .' = '.$this->value;
+    }
 
     /**
      * The columns that should be searched.
