@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use Illuminate\Support\Str;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
@@ -54,6 +55,9 @@ class ConditionalRequiredAsoc extends Resource
             BelongsTo::make('Attached Asoc','attached_asoc', Asoc::class),
             BelongsTo::make('Required Asoc','required_asoc', Asoc::class),
             BelongsTo::make('Condition Set','condition_set', ConditionSet::class),
+            Text::make('Created By')->fillUsing(function ($request, $model, $attribute, $requestAttribute) {
+                $model->{$attribute} = Str::title($request->user()->name);
+            }),
         ];
     }
 

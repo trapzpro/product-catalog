@@ -62,10 +62,15 @@ class Condition extends Resource
                 'constraint:customerTypeId' => 'customerTypeId',
                 'constraint:tvPackageId' => 'tvPackageId',
                 'constraint:chipsetId' => 'chipsetId',
+                'condition_set:id' => 'condition_set:id',
+
             ])->displayUsingLabels(),
 
             Select::make('Operator')->options([
                 'equals' => 'Equals',
+                'isTrue' => 'isTrue',
+                'isFalse' => 'isFalse'
+
             ])->displayUsingLabels(),
 
             Text::make('Value')->sortable(),
